@@ -3,8 +3,8 @@ import 'package:auto_pulse_crm/common_widgets/socialIconWidget.dart';
 import 'package:auto_pulse_crm/resources/AppColors.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 57),
               const TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter your email",
+                  hintText: "Username",
                   hintStyle: TextStyle(
                     fontSize: 16,
                     color: Color(0xff8391A1),
@@ -39,7 +39,18 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   TextField(
                     decoration: InputDecoration(
-                      hintText: "Enter your password",
+                      hintText: "Email",
+                      hintStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xff8391A1),
+                      ),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "Password",
                       hintStyle: TextStyle(
                         fontSize: 16,
                         color: Color(0xff8391A1),
@@ -51,17 +62,29 @@ class LoginScreen extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  TextButton(
-                    onPressed: null,
-                    child: Text("Forgot Password?"),
+                  const SizedBox(height: 15),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "Confirm password",
+                      hintStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xff8391A1),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.remove_red_eye),
+                      ),
+                      border: OutlineInputBorder(),
+                    ),
                   ),
+                  const SizedBox(height: 20),
                 ],
               ),
               ButtonWidget(
                 textColor: Colors.black,
-                function: (){},
+                function: () {},
                 color: AppColors.buttonColor,
-                text: "Login",
+                text: "Agree and Register",
               ),
               const SizedBox(
                 height: 30,
@@ -102,25 +125,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Don't have an account?",
-                    style: TextStyle(fontSize: 15, color: Color(0xff2068F1)),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Register Now",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff35C2C1),
-                      ),
-                    ),
-                  )
-                ],
-              )
             ],
           ),
         ),
