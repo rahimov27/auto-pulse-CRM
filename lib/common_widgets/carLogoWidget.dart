@@ -1,6 +1,5 @@
 import 'package:auto_pulse_crm/resources/AppFonts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CarLogoWidget extends StatelessWidget {

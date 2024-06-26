@@ -1,4 +1,4 @@
-import 'package:auto_pulse_crm/ui/PagesScreen.dart';
+import 'package:auto_pulse_crm/ui/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: PagesScreen(),
+      home: SplashScreen(),
     );
   }
 }

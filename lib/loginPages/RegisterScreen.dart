@@ -47,7 +47,7 @@ class RegisterScreen extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15),
                   TextField(
                     decoration: InputDecoration(
                       hintText: "Password",
@@ -62,7 +62,7 @@ class RegisterScreen extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15),
                   TextField(
                     decoration: InputDecoration(
                       hintText: "Confirm password",
@@ -77,7 +77,7 @@ class RegisterScreen extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                 ],
               ),
               ButtonWidget(
