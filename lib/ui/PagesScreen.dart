@@ -2,6 +2,8 @@
 
 import 'package:auto_pulse_crm/ui/HomePageScreen.dart';
 import 'package:auto_pulse_crm/ui/MapScreen.dart';
+import 'package:auto_pulse_crm/ui/ProfileScreen.dart';
+import 'package:auto_pulse_crm/ui/SearchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,8 +20,8 @@ class _MyNavState extends State<PagesScreen> {
   List<Widget> pages = [
     const HomePage(),
     const MapScreen(),
-    const MapScreen(),
-    const MapScreen(),
+    const SearchScreen(),
+    const ProfileScreen(),
     const MapScreen(),
   ];
 

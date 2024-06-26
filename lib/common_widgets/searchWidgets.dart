@@ -1,11 +1,17 @@
 import 'package:auto_pulse_crm/resources/AppFonts.dart';
 import 'package:flutter/material.dart';
 
-class SearchWidget extends StatelessWidget {
+class SearchWidget extends StatefulWidget {
   const SearchWidget({
     super.key,
   });
 
+  @override
+  State<SearchWidget> createState() => _SearchWidgetState();
+}
+
+class _SearchWidgetState extends State<SearchWidget> {
+  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,13 +28,24 @@ class SearchWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: const TextField(
+      child: TextField(
+        cursorColor: Colors.blue,
+        controller: _controller,
         decoration: InputDecoration(
           hintText: 'Search for...',
-          prefixIcon: Icon(Icons.search),
+
+          prefixIcon: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+          suffixIcon: IconButton(
+              onPressed: () {
+                _controller.clear();
+              },
+              icon: const Icon(Icons.clear)),
           hintStyle: AppFonts.searchStyle,
           border: InputBorder.none,
-          contentPadding: EdgeInsets.all(20), // Adjust padding as needed
+          contentPadding: const EdgeInsets.all(20), // Adjust padding as needed
         ),
       ),
     );
