@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CarLogoWidget extends StatelessWidget {
-  const CarLogoWidget({
-    super.key,
-  });
+  const CarLogoWidget({super.key, required this.image});
+
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,7 @@ class CarLogoWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset('assets/images/cars-logo/tesla.svg'),
-          const Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: Text("Tesla"),
-          ),
+          SvgPicture.asset(image),
         ],
       ),
     );

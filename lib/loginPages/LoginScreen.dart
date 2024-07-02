@@ -58,8 +58,8 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               ButtonWidget(
-                textColor: Colors.black,
-                function: (){},
+                textColor: Colors.white,
+                function: () {},
                 color: AppColors.buttonColor,
                 text: "Login",
               ),
@@ -89,16 +89,13 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SocialIconWidget(
-                    image:
-                        "/Users/r27/StudioProjects/auto_pulse_crm/assets/images/social_networks/facebook_ic.svg",
+                    image: "assets/images/social_networks/facebook_ic.svg",
                   ),
                   SocialIconWidget(
-                    image:
-                        "/Users/r27/StudioProjects/auto_pulse_crm/assets/images/social_networks/google_ic.svg",
+                    image: "assets/images/social_networks/google_ic.svg",
                   ),
                   SocialIconWidget(
-                    image:
-                        "/Users/r27/StudioProjects/auto_pulse_crm/assets/images/social_networks/cib_apple.svg",
+                    image: "assets/images/social_networks/cib_apple.svg",
                   ),
                 ],
               ),

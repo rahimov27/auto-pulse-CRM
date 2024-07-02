@@ -94,11 +94,12 @@ abstract class AppFonts {
   );
 
   static const TextStyle carSubTitle = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Montserrat-VariableFont_wght',
-    color: Color(0xff919191),
-  );
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'Montserrat-VariableFont_wght',
+      color: Color(0xff919191),
+      letterSpacing: 0,
+      height: 0);
 
   static const TextStyle carDetail = TextStyle(
     fontSize: 12,

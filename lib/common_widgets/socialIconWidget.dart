@@ -15,8 +15,11 @@ class SocialIconWidget extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 45),
-        child: SvgPicture.asset(image),
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: SvgPicture.asset(image),
+        ),
       ),
     );
   }

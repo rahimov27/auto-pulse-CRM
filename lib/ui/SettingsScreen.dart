@@ -183,15 +183,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             // ignore: sort_child_properties_last
             children: [
               Image.asset(
-                'assets/camry.png',
+                'assets/camry.jpg',
                 fit: BoxFit.cover,
               ),
               Image.asset(
-                'assets/camry.png',
+                'assets/camry.jpg',
                 fit: BoxFit.cover,
               ),
               Image.asset(
-                'assets/camry.png',
+                'assets/camry.jpg',
                 fit: BoxFit.cover,
               ),
             ],

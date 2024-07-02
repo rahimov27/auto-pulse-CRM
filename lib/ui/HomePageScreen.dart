@@ -1,11 +1,23 @@
 import 'package:auto_pulse_crm/common_widgets/brandRowWidget.dart';
 import 'package:auto_pulse_crm/common_widgets/carLogoWidget.dart';
-import 'package:auto_pulse_crm/common_widgets/cardScrollWidget.dart';
 import 'package:auto_pulse_crm/common_widgets/cityChipWidget.dart';
 import 'package:auto_pulse_crm/common_widgets/searchWidgets.dart';
 import 'package:auto_pulse_crm/resources/AppFonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+class Car {
+  final String title;
+  final String image;
+  final String stars;
+  final int price;
+
+  Car(
+      {required this.title,
+      required this.image,
+      required this.stars,
+      required this.price});
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,6 +30,30 @@ class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
   Color _appBarColor = Colors.transparent;
   String _activeCity = 'Los-angeles'; // Default active city
+
+  final List<Car> cars = [
+    Car(
+        title: 'Toyota Camry - 2017',
+        image: 'assets/camry.jpg',
+        stars: '4.5',
+        price: 200),
+    Car(
+        title: 'Toyota Prius - 2008',
+        image: 'assets/prius.jpg',
+        stars: '4.5',
+        price: 150),
+    Car(
+        title: 'Honda Accord - 2019',
+        image: 'assets/accord.jpg',
+        stars: '4.7',
+        price: 220),
+    Car(
+        title: 'BMW 3 Series - 2020',
+        image: 'assets/bmw-3.jpg',
+        stars: '4.8',
+        price: 300),
+    // Add more car objects here
+  ];
 
   @override
   void initState() {
@@ -48,13 +84,13 @@ class _HomePageState extends State<HomePage> {
     Color textColor = _appBarColor == Colors.transparent
         ? const Color(0xFF1463FF)
         : Colors.white;
+
     return Scaffold(
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [
           SliverAppBar(
             backgroundColor: _appBarColor,
-            expandedHeight: 24.0,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Padding(
@@ -85,46 +121,32 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: SearchWidget(),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        CardScrollWidget(),
-                        SizedBox(width: 20),
-                        CardScrollWidget(),
-                        SizedBox(width: 20),
-                        CardScrollWidget(),
-                      ],
-                    ),
-                  ),
-                ),
-                const BrandRow(
-                  title: 'Brands',
-                ),
+                const SizedBox(height: 20),
+                const BrandRow(title: 'Brands'),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        CarLogoWidget(),
+                        CarLogoWidget(
+                          image: "assets/images/cars-logo/tesla.svg",
+                        ),
                         SizedBox(width: 10),
-                        CarLogoWidget(),
+                        CarLogoWidget(
+                          image: "assets/images/cars-logo/toyota.svg",
+                        ),
                         SizedBox(width: 10),
-                        CarLogoWidget(),
+                        CarLogoWidget(
+                          image: "assets/images/cars-logo/Honda-Logo.wine.svg",
+                        ),
                         SizedBox(width: 10),
-                        CarLogoWidget(),
-                        SizedBox(width: 10),
-                        CarLogoWidget(),
                       ],
                     ),
                   ),
                 ),
-                const BrandRow(
-                  title: 'Cars',
-                ),
+                const SizedBox(height: 20),
+                const BrandRow(title: 'Cities'),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: SingleChildScrollView(
@@ -160,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 20),
               ],
             ),
           ),
@@ -169,17 +191,23 @@ class _HomePageState extends State<HomePage> {
               crossAxisCount: 2,
               mainAxisSpacing: 0,
               crossAxisSpacing: 0,
-              childAspectRatio: 0.91, // Adjust the aspect ratio as needed
+              childAspectRatio: 0.8, // Adjust the aspect ratio as needed
             ),
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return const CarColumnWidget();
+                final car = cars[index];
+                return CarColumnWidget(
+                  title: car.title,
+                  image: car.image,
+                  stars: car.stars,
+                  price: car.price,
+                );
               },
-              childCount: 4,
+              childCount: cars.length, // Number of items to display in the grid
             ),
           ),
           const SliverToBoxAdapter(
-            child: SizedBox(height: 40),
+            child: SizedBox(height: 50),
           ),
         ],
       ),
@@ -188,7 +216,18 @@ class _HomePageState extends State<HomePage> {
 }
 
 class CarColumnWidget extends StatelessWidget {
-  const CarColumnWidget({super.key});
+  const CarColumnWidget({
+    super.key,
+    required this.title,
+    required this.stars,
+    required this.image,
+    required this.price,
+  });
+
+  final String image;
+  final String title;
+  final String stars;
+  final int price;
 
   @override
   Widget build(BuildContext context) {
@@ -202,23 +241,23 @@ class CarColumnWidget extends StatelessWidget {
             height: 140,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              image: const DecorationImage(
-                image: AssetImage('assets/prius.jpg'),
+              image: DecorationImage(
+                image: AssetImage(image),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            "Toyota prius - 2017",
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
           Row(
             children: [
               SvgPicture.asset('assets/images/Star_fill.svg'),
               const SizedBox(width: 4),
-              const Text('4.5'),
+              Text(stars),
               const SizedBox(width: 4),
               const Text(
                 "124 (Review)",
@@ -227,9 +266,9 @@ class CarColumnWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          const Text(
-            "\$550 / day",
-            style: TextStyle(
+          Text(
+            "\$ $price",
+            style: const TextStyle(
               color: Color(0xff5282FF),
             ),
           ),

@@ -71,24 +71,21 @@ class CarStatus extends StatelessWidget {
                   children: [
                     CardSvgParamterWidget(
                       text: '585 hp',
-                      svg:
-                          '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/card-part-svg/jam_gps-f.svg',
+                      svg: 'assets/images/card-part-svg/jam_gps-f.svg',
                     ),
                     SizedBox(
                       width: 12,
                     ),
                     CardSvgParamterWidget(
                       text: 'Automatic',
-                      svg:
-                          '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/card-part-svg/bxs_gas-pump.svg',
+                      svg: 'assets/images/card-part-svg/bxs_gas-pump.svg',
                     ),
                     SizedBox(
                       width: 12,
                     ),
                     CardSvgParamterWidget(
                       text: 'Seats',
-                      svg:
-                          '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/card-part-svg/bxs_gas-pump-2.svg',
+                      svg: 'assets/images/card-part-svg/bxs_gas-pump-2.svg',
                     ),
                   ],
                 ),
@@ -99,7 +96,7 @@ class CarStatus extends StatelessWidget {
                       width: double.infinity,
                       height: 146,
                       fit: BoxFit.cover,
-                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/card-part-svg/mercedes.png'),
+                      'assets/images/card-part-svg/mercedes.png'),
                 ),
               ],
             ),

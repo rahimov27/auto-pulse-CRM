@@ -50,62 +50,92 @@ class _MyNavState extends State<PagesScreen> {
         items: [
           BottomNavigationBarItem(
             label: "Home",
-            activeIcon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Home-active.svg',
-              color: const Color(0xFF1463FF), // Active icon color
+            activeIcon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Home-active.svg',
+                color: const Color(0xFF1463FF), // Active icon color
+              ),
             ),
-            icon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Home.svg',
-              color: const Color(0xFF9499A1)
-                  .withOpacity(0.80), // Inactive icon color
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Home.svg',
+                color: const Color(0xFF9499A1)
+                    .withOpacity(0.80), // Inactive icon color
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: "Map",
-            activeIcon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Location-active.svg',
-              color: const Color(0xFF1463FF), // Active icon color
+            activeIcon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Location-active.svg',
+                color: const Color(0xFF1463FF), // Active icon color
+              ),
             ),
-            icon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Location.svg',
-              color: const Color(0xFF9499A1)
-                  .withOpacity(0.80), // Inactive icon color
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Location.svg',
+                color: const Color(0xFF9499A1)
+                    .withOpacity(0.80), // Inactive icon color
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: "Search",
-            activeIcon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Search-active.svg',
-              color: const Color(0xFF1463FF), // Active icon color
+            activeIcon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Search-active.svg',
+                color: const Color(0xFF1463FF), // Active icon color
+              ),
             ),
-            icon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Search.svg',
-              color: const Color(0xFF9499A1)
-                  .withOpacity(0.80), // Inactive icon color
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Search.svg',
+                color: const Color(0xFF9499A1)
+                    .withOpacity(0.80), // Inactive icon color
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: "Profile",
-            activeIcon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Profile-active.svg',
-              color: const Color(0xFF1463FF), // Active icon color
+            activeIcon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Profile-active.svg',
+                color: const Color(0xFF1463FF), // Active icon color
+              ),
             ),
-            icon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Profile.svg',
-              color: const Color(0xFF9499A1)
-                  .withOpacity(0.80), // Inactive icon color
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Profile.svg',
+                color: const Color(0xFF9499A1)
+                    .withOpacity(0.80), // Inactive icon color
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: "Settings",
-            activeIcon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Setting-active.svg',
-              color: const Color(0xFF1463FF), // Active icon color
+            activeIcon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Setting-active.svg',
+                color: const Color(0xFF1463FF), // Active icon color
+              ),
             ),
-            icon: SvgPicture.asset(
-              'assets/images/bottom-nav-svg/Setting.svg',
-              color: const Color(0xFF9499A1)
-                  .withOpacity(0.80), // Inactive icon color
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SvgPicture.asset(
+                'assets/images/bottom-nav-svg/Setting.svg',
+                color: const Color(0xFF9499A1)
+                    .withOpacity(0.80), // Inactive icon color
+              ),
             ),
           ),
         ],

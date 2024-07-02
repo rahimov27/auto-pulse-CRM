@@ -82,18 +82,22 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
   void _showModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       builder: (BuildContext context) {
-        return Container(
-          height: 250,
-          color: Colors.white,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text('Enter Latitude and Longitude'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(16.0),
+              color: Colors.white,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const Text('Enter Latitude and Longitude'),
+                  const SizedBox(height: 10),
+                  TextField(
                     controller: _latController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -101,10 +105,8 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     ),
                     keyboardType: TextInputType.number,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
+                  const SizedBox(height: 10),
+                  TextField(
                     controller: _lngController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -112,37 +114,37 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     ),
                     keyboardType: TextInputType.number,
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      child: const Text('Close'),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(width: 20),
-                    ElevatedButton(
-                      child: const Text('Show Marker'),
-                      onPressed: () {
-                        final double? lat =
-                            double.tryParse(_latController.text);
-                        final double? lng =
-                            double.tryParse(_lngController.text);
-                        if (lat != null && lng != null) {
-                          setState(() {
-                            _newMarkerPosition = LatLng(lat, lng);
-                          });
-                          _mapController.move(LatLng(lat, lng),
-                              14.5); // Move the map to the new marker
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        child: const Text('Close'),
+                        onPressed: () {
                           Navigator.pop(context);
-                        }
-                      },
-                    ),
-                  ],
-                ),
-              ],
+                        },
+                      ),
+                      const SizedBox(width: 20),
+                      ElevatedButton(
+                        child: const Text('Show Marker'),
+                        onPressed: () {
+                          final double? lat =
+                              double.tryParse(_latController.text);
+                          final double? lng =
+                              double.tryParse(_lngController.text);
+                          if (lat != null && lng != null) {
+                            setState(() {
+                              _newMarkerPosition = LatLng(lat, lng);
+                            });
+                            _mapController.move(LatLng(lat, lng), 14.5);
+                            Navigator.pop(context);
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );
