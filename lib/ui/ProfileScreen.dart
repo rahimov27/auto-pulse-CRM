@@ -53,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/Location.svg',
+                      'assets/images/Location.svg',
                       width: 24,
                       height: 24,
                       color: textColor, // Icon color

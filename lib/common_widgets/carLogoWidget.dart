@@ -26,8 +26,7 @@ class CarLogoWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/cars-logo/tesla.svg'),
+          SvgPicture.asset('assets/images/cars-logo/tesla.svg'),
           const Padding(
             padding: EdgeInsets.only(top: 10),
             child: Text("Tesla"),

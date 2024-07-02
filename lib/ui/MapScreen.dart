@@ -202,7 +202,7 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     width: 50,
                     height: 50,
                     child: SvgPicture.asset(
-                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg',
+                      'assets/images/pin.svg',
                     ),
                   ),
                   Marker(
@@ -210,7 +210,7 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     width: 50,
                     height: 50,
                     child: SvgPicture.asset(
-                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg',
+                      'assets/images/pin.svg',
                     ),
                   ),
                   if (_newMarkerPosition != null)
@@ -219,7 +219,7 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                       width: 50,
                       height: 50,
                       child: SvgPicture.asset(
-                        '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg',
+                        'assets/images/pin.svg',
                       ),
                     ),
                 ],

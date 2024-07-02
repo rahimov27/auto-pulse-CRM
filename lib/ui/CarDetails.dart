@@ -12,15 +12,14 @@ class CarDetails extends StatefulWidget {
 }
 
 class _CarDetailsState extends State<CarDetails> {
-  String _selectedImage =
-      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/car-detail/big-car.png';
+  String _selectedImage = 'assets/images/car-detail/big-car.png';
   int _selectedIndex = 3;
 
   final List<String> _imagePaths = [
-    '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/car-detail/1.png',
-    '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/car-detail/2.png',
-    '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/car-detail/3.png',
-    '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/car-detail/big-car.png',
+    'assets/images/car-detail/1.png',
+    'assets/images/car-detail/2.png',
+    'assets/images/car-detail/3.png',
+    'assets/images/car-detail/big-car.png',
   ];
 
   void _updateSelectedImage(int index) {

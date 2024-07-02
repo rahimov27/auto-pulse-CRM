@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/Location.svg',
+                      'assets/images/Location.svg',
                       width: 24,
                       height: 24,
                       color: textColor, // Icon color
@@ -203,8 +203,7 @@ class CarColumnWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: const DecorationImage(
-                image: AssetImage(
-                    '/Users/r27/StudioProjects/auto_pulse_crm/assets/prius.jpg'),
+                image: AssetImage('assets/prius.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -217,8 +216,7 @@ class CarColumnWidget extends StatelessWidget {
           const SizedBox(height: 4),
           Row(
             children: [
-              SvgPicture.asset(
-                  '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/Star_fill.svg'),
+              SvgPicture.asset('assets/images/Star_fill.svg'),
               const SizedBox(width: 4),
               const Text('4.5'),
               const SizedBox(width: 4),

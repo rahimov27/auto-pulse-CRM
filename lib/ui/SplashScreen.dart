@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Expanded(
               child: Center(
                 child: LottieBuilder.asset(
-                  "/Users/r27/StudioProjects/auto_pulse_crm/assets/images/Lottie/Splash.json",
+                  "assets/images/Lottie/Splash.json",
                   fit: BoxFit.contain,
                 ),
               ),

@@ -75,6 +75,13 @@ flutter:
     - assets/icons/Paper.svg
     - assets/camry.png
     - assets/images/bottom-nav-svg/
+    - assets/images/Lottie/
+    - assets/images/Location.svg
+    - assets/prius.jpg
+    - assets/images/Star_fill.svg
+    - assets/images/cars-logo/tesla.svg
+    - assets/images/pin.svg
+    - assets/images/car-detail/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
