@@ -1,7 +1,6 @@
 import 'package:auto_pulse_crm/common_widgets/brandRowWidget.dart';
-import 'package:auto_pulse_crm/common_widgets/carWidget.dart';
+import 'package:auto_pulse_crm/common_widgets/carStatusWidget.dart';
 import 'package:auto_pulse_crm/common_widgets/searchWidgets.dart';
-import 'package:auto_pulse_crm/resources/AppColors.dart';
 import 'package:auto_pulse_crm/resources/AppFonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -41,7 +40,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ? const Color(0xFF1463FF)
         : Colors.white;
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [
@@ -84,10 +82,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           BrandRow(
                             title: 'Cars',
                           ),
-                          CarsWidget(),
-                          CarsWidget(),
-                          CarsWidget(),
-                          CarsWidget(),
+                          CarStatus(),
+                          CarStatus(),
+                          CarStatus(),
                         ],
                       ),
                     ),

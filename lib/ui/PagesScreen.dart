@@ -4,6 +4,7 @@ import 'package:auto_pulse_crm/ui/HomePageScreen.dart';
 import 'package:auto_pulse_crm/ui/MapScreen.dart';
 import 'package:auto_pulse_crm/ui/ProfileScreen.dart';
 import 'package:auto_pulse_crm/ui/SearchScreen.dart';
+import 'package:auto_pulse_crm/ui/SettingsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,7 +23,7 @@ class _MyNavState extends State<PagesScreen> {
     const MapScreen(),
     const SearchScreen(),
     const ProfileScreen(),
-    const MapScreen(),
+    const SettingsScreen(),
   ];
 
   @override
@@ -30,6 +31,7 @@ class _MyNavState extends State<PagesScreen> {
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xff27273A),
         type: BottomNavigationBarType.fixed, // Ensure fixed type
         currentIndex: currentIndex,
         selectedItemColor: const Color(0xFF1463FF), // Active item color
@@ -49,11 +51,11 @@ class _MyNavState extends State<PagesScreen> {
           BottomNavigationBarItem(
             label: "Home",
             activeIcon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Home-active.svg',
+              'assets/images/bottom-nav-svg/Home-active.svg',
               color: const Color(0xFF1463FF), // Active icon color
             ),
             icon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Home.svg',
+              'assets/images/bottom-nav-svg/Home.svg',
               color: const Color(0xFF9499A1)
                   .withOpacity(0.80), // Inactive icon color
             ),
@@ -61,11 +63,11 @@ class _MyNavState extends State<PagesScreen> {
           BottomNavigationBarItem(
             label: "Map",
             activeIcon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Location-active.svg',
+              'assets/images/bottom-nav-svg/Location-active.svg',
               color: const Color(0xFF1463FF), // Active icon color
             ),
             icon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Location.svg',
+              'assets/images/bottom-nav-svg/Location.svg',
               color: const Color(0xFF9499A1)
                   .withOpacity(0.80), // Inactive icon color
             ),
@@ -73,11 +75,11 @@ class _MyNavState extends State<PagesScreen> {
           BottomNavigationBarItem(
             label: "Search",
             activeIcon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Search-active.svg',
+              'assets/images/bottom-nav-svg/Search-active.svg',
               color: const Color(0xFF1463FF), // Active icon color
             ),
             icon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Search.svg',
+              'assets/images/bottom-nav-svg/Search.svg',
               color: const Color(0xFF9499A1)
                   .withOpacity(0.80), // Inactive icon color
             ),
@@ -85,11 +87,11 @@ class _MyNavState extends State<PagesScreen> {
           BottomNavigationBarItem(
             label: "Profile",
             activeIcon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Profile-active.svg',
+              'assets/images/bottom-nav-svg/Profile-active.svg',
               color: const Color(0xFF1463FF), // Active icon color
             ),
             icon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Profile.svg',
+              'assets/images/bottom-nav-svg/Profile.svg',
               color: const Color(0xFF9499A1)
                   .withOpacity(0.80), // Inactive icon color
             ),
@@ -97,11 +99,11 @@ class _MyNavState extends State<PagesScreen> {
           BottomNavigationBarItem(
             label: "Settings",
             activeIcon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Setting-active.svg',
+              'assets/images/bottom-nav-svg/Setting-active.svg',
               color: const Color(0xFF1463FF), // Active icon color
             ),
             icon: SvgPicture.asset(
-              '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/bottom-nav-svg/Setting.svg',
+              'assets/images/bottom-nav-svg/Setting.svg',
               color: const Color(0xFF9499A1)
                   .withOpacity(0.80), // Inactive icon color
             ),

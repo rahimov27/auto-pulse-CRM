@@ -17,6 +17,11 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
   late Animation<double> _animation1;
   late Animation<double> _animation2;
   late Animation<double> _animation3;
+  LatLng? _newMarkerPosition;
+
+  final TextEditingController _latController = TextEditingController();
+  final TextEditingController _lngController = TextEditingController();
+  final MapController _mapController = MapController();
 
   @override
   void initState() {
@@ -69,7 +74,80 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
     _animationController1.dispose();
     _animationController2.dispose();
     _animationController3.dispose();
+    _latController.dispose();
+    _lngController.dispose();
     super.dispose();
+  }
+
+  void _showModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 250,
+          color: Colors.white,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('Enter Latitude and Longitude'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    controller: _latController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Latitude',
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    controller: _lngController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Longitude',
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      child: const Text('Close'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(width: 20),
+                    ElevatedButton(
+                      child: const Text('Show Marker'),
+                      onPressed: () {
+                        final double? lat =
+                            double.tryParse(_latController.text);
+                        final double? lng =
+                            double.tryParse(_lngController.text);
+                        if (lat != null && lng != null) {
+                          setState(() {
+                            _newMarkerPosition = LatLng(lat, lng);
+                          });
+                          _mapController.move(LatLng(lat, lng),
+                              14.5); // Move the map to the new marker
+                          Navigator.pop(context);
+                        }
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -78,9 +156,11 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
       body: Stack(
         children: [
           FlutterMap(
+            mapController: _mapController,
             options: const MapOptions(
               initialCenter: LatLng(52.391842, 13.063561),
-              initialZoom: 14.5,
+              initialZoom: 3.5,
+              maxZoom: 18,
             ),
             children: [
               TileLayer(
@@ -122,20 +202,36 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     width: 50,
                     height: 50,
                     child: SvgPicture.asset(
-                        '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg'),
+                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg',
+                    ),
                   ),
+                  Marker(
+                    point: const LatLng(42.882004, 74.582748),
+                    width: 50,
+                    height: 50,
+                    child: SvgPicture.asset(
+                      '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg',
+                    ),
+                  ),
+                  if (_newMarkerPosition != null)
+                    Marker(
+                      point: _newMarkerPosition!,
+                      width: 50,
+                      height: 50,
+                      child: SvgPicture.asset(
+                        '/Users/r27/StudioProjects/auto_pulse_crm/assets/images/pin.svg',
+                      ),
+                    ),
                 ],
               ),
             ],
           ),
         ],
       ),
+      floatingActionButton: IconButton(
+        onPressed: () => _showModal(context),
+        icon: const Icon(Icons.search),
+      ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: MapScreen(),
-  ));
 }

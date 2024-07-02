@@ -1,6 +1,5 @@
 import 'package:auto_pulse_crm/common_widgets/cardScrollWidget.dart';
 import 'package:auto_pulse_crm/common_widgets/searchWidgets.dart';
-import 'package:auto_pulse_crm/resources/AppColors.dart';
 import 'package:auto_pulse_crm/resources/AppFonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -40,7 +39,6 @@ class _SearchScreenState extends State<SearchScreen> {
         ? const Color(0xFF1463FF)
         : Colors.white;
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
       body: CustomScrollView(
         controller: _scrollController,
         slivers: [

@@ -1,5 +1,6 @@
 import 'package:auto_pulse_crm/resources/AppColors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppFonts {
   static const TextStyle boldS18 = TextStyle(
@@ -77,4 +78,32 @@ abstract class AppFonts {
       fontFamily: 'Satoshi-Variable',
       color: Color(0xff000000),
       height: 1.111);
+
+  static const TextStyle forChipText = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Montserrat-VariableFont_wght',
+    color: Colors.white,
+  );
+
+  static const TextStyle carTitle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Montserrat-VariableFont_wght',
+    color: Colors.black,
+  );
+
+  static const TextStyle carSubTitle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Montserrat-VariableFont_wght',
+    color: Color(0xff919191),
+  );
+
+  static const TextStyle carDetail = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Montserrat-VariableFont_wght',
+    color: Colors.black,
+  );
 }
