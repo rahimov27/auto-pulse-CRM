@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -19,8 +21,7 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
   late Animation<double> _animation3;
   LatLng? _newMarkerPosition;
 
-  final TextEditingController _latController = TextEditingController();
-  final TextEditingController _lngController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   final MapController _mapController = MapController();
 
   @override
@@ -74,9 +75,24 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
     _animationController1.dispose();
     _animationController2.dispose();
     _animationController3.dispose();
-    _latController.dispose();
-    _lngController.dispose();
+    _searchController.dispose();
     super.dispose();
+  }
+
+  Future<LatLng?> _getLatLngFromAddress(String address) async {
+    final url = Uri.parse(
+        'https://nominatim.openstreetmap.org/search?format=json&q=$address');
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+      if (data.isNotEmpty) {
+        final double lat = double.parse(data[0]['lat']);
+        final double lon = double.parse(data[0]['lon']);
+        return LatLng(lat, lon);
+      }
+    }
+    return null;
   }
 
   void _showModal(BuildContext context) {
@@ -95,24 +111,14 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  const Text('Enter Latitude and Longitude'),
+                  const Text('Enter City or Country Name'),
                   const SizedBox(height: 10),
                   TextField(
-                    controller: _latController,
+                    controller: _searchController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Latitude',
+                      labelText: 'City or Country Name',
                     ),
-                    keyboardType: TextInputType.number,
-                  ),
-                  const SizedBox(height: 10),
-                  TextField(
-                    controller: _lngController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Longitude',
-                    ),
-                    keyboardType: TextInputType.number,
                   ),
                   const SizedBox(height: 20),
                   Row(
@@ -127,17 +133,18 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                       const SizedBox(width: 20),
                       ElevatedButton(
                         child: const Text('Show Marker'),
-                        onPressed: () {
-                          final double? lat =
-                              double.tryParse(_latController.text);
-                          final double? lng =
-                              double.tryParse(_lngController.text);
-                          if (lat != null && lng != null) {
-                            setState(() {
-                              _newMarkerPosition = LatLng(lat, lng);
-                            });
-                            _mapController.move(LatLng(lat, lng), 14.5);
-                            Navigator.pop(context);
+                        onPressed: () async {
+                          final address = _searchController.text;
+                          if (address.isNotEmpty) {
+                            final position =
+                                await _getLatLngFromAddress(address);
+                            if (position != null) {
+                              setState(() {
+                                _newMarkerPosition = position;
+                              });
+                              _mapController.move(position, 14.5);
+                              Navigator.pop(context);
+                            }
                           }
                         },
                       ),

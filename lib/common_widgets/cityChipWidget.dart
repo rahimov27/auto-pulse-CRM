@@ -24,7 +24,7 @@ class CityChipWidget extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: isActive ? Colors.transparent : Color(0xffE1E1E1),
+              color: isActive ? Colors.transparent : const Color(0xffE1E1E1),
             ),
           ),
           child: ClipRRect(
@@ -38,7 +38,7 @@ class CityChipWidget extends StatelessWidget {
                   child: Text(
                     text,
                     style: AppFonts.forChipText.copyWith(
-                      color: isActive ? Colors.white : Color(0xff525252),
+                      color: isActive ? Colors.white : const Color(0xff525252),
                     ),
                   ),
                 ),

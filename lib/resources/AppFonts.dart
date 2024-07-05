@@ -1,5 +1,4 @@
 import 'package:auto_pulse_crm/resources/AppColors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppFonts {

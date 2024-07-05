@@ -13,16 +13,7 @@ class CarLogoWidget extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.2977,
       height: 104,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 1,
-              blurRadius: 4,
-              offset: const Offset(2, 3),
-            )
-          ],
-          color: Colors.white),
+          borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
